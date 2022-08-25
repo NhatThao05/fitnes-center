@@ -1,9 +1,15 @@
-import React from "react"
+import React, {useState} from "react"
+import {Box} from '@mui/material';
+import Banner from "../components/Banner";
+import SearchExercise from "../components/SearchExercise";
+import Exercise from "../components/Exercise";
 
 export default function Home() {
  return (
-  <div>
-   <h1>Home component</h1>
-  </div>
+  <Box>
+   <Banner />
+   <SearchExercise />
+   <Exercise />
+  </Box>
  )
 }

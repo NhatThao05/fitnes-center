@@ -10,7 +10,7 @@ export default function Banner() {
    }}
    position="relative" p="20px"
    >
-   <Typography color="#FF2625" fontWeight="600" fontSize={26}>
+   <Typography color="#1e88e5" fontWeight="600" fontSize={26}>
      Fitness CLUB
    </Typography>
    <Typography fontWeight={700} sx={{fontSize: {lg: '40px', xs: '35px',}}} mb="20px" mt="30px">
@@ -19,10 +19,10 @@ export default function Banner() {
    <Typography fontSize={25} lineHeight="35px" mb={4}>
     Check out the most effective exercise
    </Typography>
-   <Button variant="contained" href="#exercises" sx={{padding: '10px 20px'}}>Explore more program</Button>
+   <Button variant="contained" href="#exercises" sx={{padding: '10px 20px', fontWeight:'bold'}}>Explore more program</Button>
    <Typography
      fontWeight={600}
-     color="#ff2526"
+     color="#1e88e5"
      sx={{
       opacity: 0.1,
       display: {lg: 'block', xs: 'none'}

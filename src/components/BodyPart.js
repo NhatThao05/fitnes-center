@@ -15,25 +15,21 @@ export default function BodyPart({item, setBodyParts, bodyParts}) {
     //  { background: '#fff', borderBottomLeftRadius: '20px', width: '270px', height: '282px', cursor: 'pointer', gap: '47px' }}
 
     sx={{
-     borderTop: bodyParts === item ? '4px solid #FF2625' : '',
-     backgroundColor: '#fff',
-     borderBottomLeftRadius: '20px',
-     width: '270px', 
-     height: '282px',
+     borderTop: bodyParts === item ? '1px solid #red' : '',
+     backgroundColor: '#1e88e5',
+     borderRadius: '20px',
+     width: '250px', 
+     height: '260px',
      cursor: 'pointer', 
-     gap: '47px'
+     gap: '30px'
     }}
-    // onClick={() => {
-    //   setBodyParts(item);
-    //   window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
-    // }}
     onClick={() => {
      setBodyParts(item);
      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
    }}
   >
-    <img src={Dumbell} alt="Cadio" style={{width: '40px', height: '40px'}}/>
-    <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya" color="#3A1212" textTransform="capitalize"> {item}</Typography>
+    <img src={Dumbell} alt="Cadio" style={{width: '100px', height: '100px'}}/>
+    <Typography fontSize="24px" fontWeight="bold" fontFamily="Alegreya" color="#fff" textTransform="capitalize"> {item}</Typography>
   </Stack>
  )
 }

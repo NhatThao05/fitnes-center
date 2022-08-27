@@ -17,7 +17,7 @@ export default function Home() {
    <Exercise 
      setExercises={setExercises} 
      bodyParts={bodyParts} 
-     setBodyParts={setBodyParts}
+     exercises={exercises}
    />
   </Box>
  )

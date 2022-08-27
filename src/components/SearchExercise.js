@@ -24,7 +24,6 @@ useEffect(() => {
       || exercise.equipment.toLowerCase().includes(search)
       || exercise.bodyPart.toLowerCase().includes(search)
       )
-      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
 
       setSearch('');
       setExercises(searchExercises);

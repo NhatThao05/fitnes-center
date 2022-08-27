@@ -10,9 +10,6 @@ export default function BodyPart({item, setBodyParts, bodyParts}) {
     alignItems="center"
     justifyContent="center"
     className="bodyPart-card"
-    // sx={bodyParts === item ? 
-    //  { borderTop: '4px solid #FF2625', background: '#fff', borderBottomLeftRadius: '20px', width: '270px', height: '282px', cursor: 'pointer', gap: '47px' } : 
-    //  { background: '#fff', borderBottomLeftRadius: '20px', width: '270px', height: '282px', cursor: 'pointer', gap: '47px' }}
 
     sx={{
      borderTop: bodyParts === item ? '1px solid #red' : '',

@@ -1,7 +1,34 @@
 import React, {useState, useEffect} from "react"
 import {Box, Button, Stack, TextField, Typography} from '@mui/material'
+import { SearchOffSharp } from "@mui/icons-material"
+import { fetchData, exerciseOptions } from "../utils/fetchData"
+import HorizontalScrollbar from "./HorizontalScrollbar"
 
 export default function SearchExercise() {
+ const [search, setSearch] = useState(false)
+ const [exercises, setExercise] = useState([]);
+ const [bodyParts, setBodyParts] = useState([])
+
+ useEffect(() => {
+  const fecthExercisesData = async() => {
+    const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
+    setBodyParts(['all', ... bodyPartsData])
+  }
+  fecthExercisesData()
+ },[])
+ const handleSearch = async () => {
+  if(search) {
+   const exerciseData = await fetchData("https://exercisedb.p.rapidapi.com/exercises", exerciseOptions);
+   const searchExercise = exerciseData.filter(
+    (exercise) => exercise.name.toLowerCase().includes(search)
+    || exercise.target.toLowerCase().includes(search)
+    || exercise.equipment.toLowerCase().includes(search)
+    || exercise.bodyPart.toLowerCase().includes(search)
+   )
+   setSearch('');
+   setExercise(searchExercise);
+  }
+ }
  return (
   <Stack alignItems="center" mt="40px" justifyContent="center" p="20px">  
     <Typography fontWeight={600} sx={{fontSize: {lg: '45px', xs: '35px'}}} mb="50px" textAlign="center">
@@ -14,12 +41,21 @@ export default function SearchExercise() {
         width: {lg: '800px', xs: '400px'}
        }}
        height="70px"
-       value=""
-       onChange={(e) => {}}
+       value={search}
+       onChange={(e) => setSearch(e.target.value.toLowerCase())}
        placeholder="Search exercise curriculum"
        type="text"
      />
-     <Button variant="contained" sx={{height: "55px",  fontWeight: "bold", width: {lg: '150px', xs: '80px'}, fontSize: {lg: '15px', xs: '10px'}, position: 'absolute', right: 0}} className="search-btn">Search</Button>
+     <Button variant="contained" 
+       sx={{height: "55px",  fontWeight: "bold", 
+        width: {lg: '150px', xs: '80px'}, 
+        fontSize: {lg: '15px', xs: '10px'}, 
+        position: 'absolute', right: 0}} 
+       onClick={handleSearch} 
+       className="search-btn">Search</Button>
+    </Box>
+    <Box sx={{position: 'relative', width: '100%', p: '20px'}}>
+       <HorizontalScrollbar data={bodyParts}/>
     </Box>
   </Stack>
  )
